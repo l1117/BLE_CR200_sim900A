@@ -359,7 +359,7 @@
             <useXO>0</useXO>
             <VariousControls>
               <MiscControls>--c99</MiscControls>
-              <Define>BLE_STACK_SUPPORT_REQD BOARD_PCA10028 S110 NRF51 SOFTDEVICE_PRESENT</Define>
+              <Define>BLE_STACK_SUPPORT_REQD BOARD_PCA10028 S110 NRF51 SOFTDEVICE_PRESENT DEBUG</Define>
               <Undefine></Undefine>
               <IncludePath></IncludePath>
             </VariousControls>
@@ -823,33 +823,9 @@
               <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\2.0.0\hal\nrf_delay.c</FilePath>
             </File>
             <File>
-              <FileName>app_uart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>RTE\nRF_Drivers\nRF51422_xxAC\app_uart.h</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>0</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds/>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>app_uart_fifo.c</FileName>
+              <FileName>simple_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>RTE\nRF_Drivers\nRF51422_xxAC\app_uart_fifo.c</FilePath>
+              <FilePath>RTE\nRF_Drivers\nRF51422_xxAC\simple_uart.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>0</UseCPPCompiler>
@@ -895,14 +871,38 @@
               </FileOption>
             </File>
             <File>
-              <FileName>app_uart.h</FileName>
+              <FileName>simple_uart.h</FileName>
               <FileType>5</FileType>
-              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\app_uart.h</FilePath>
+              <FilePath>RTE\nRF_Drivers\nRF51422_xxAC\simple_uart.h</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>0</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
             </File>
             <File>
-              <FileName>app_uart_fifo.c</FileName>
+              <FileName>simple_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\app_uart_fifo.c</FilePath>
+              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\simple_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>simple_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\simple_uart.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1033,78 +1033,6 @@
               <FileName>app_error.h</FileName>
               <FileType>5</FileType>
               <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\app_error.h</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>0</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds/>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>app_fifo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\app_fifo.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>0</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>app_fifo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\app_fifo.h</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>0</UseCPPCompiler>
@@ -1270,54 +1198,6 @@
               </FileOption>
             </File>
             <File>
-              <FileName>retarget.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\retarget.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>0</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <useXO>2</useXO>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
               <FileName>app_button.c</FileName>
               <FileType>1</FileType>
               <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_button.c</FilePath>
@@ -1338,16 +1218,6 @@
               <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_error.h</FilePath>
             </File>
             <File>
-              <FileName>app_fifo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_fifo.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_fifo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_fifo.h</FilePath>
-            </File>
-            <File>
               <FileName>app_gpiote.c</FileName>
               <FileType>1</FileType>
               <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_gpiote.c</FilePath>
@@ -1366,11 +1236,6 @@
               <FileName>app_timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>retarget.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\retarget.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1983,7 +1848,7 @@
               <RVCTZI>0</RVCTZI>
               <RVCTOtherData>0</RVCTOtherData>
               <ModuleSelection>0</ModuleSelection>
-              <IncludeInBuild>0</IncludeInBuild>
+              <IncludeInBuild>1</IncludeInBuild>
               <AlwaysBuild>2</AlwaysBuild>
               <GenerateAssemblyFile>2</GenerateAssemblyFile>
               <AssembleAssemblyFile>2</AssembleAssemblyFile>
@@ -2046,6 +1911,49 @@
               <FileName>bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>RTE\Board_Support\nRF51822_xxAA\bsp.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>0</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
             </File>
           </Files>
         </Group>
@@ -2321,7 +2229,7 @@
               <RVCTZI>0</RVCTZI>
               <RVCTOtherData>0</RVCTOtherData>
               <ModuleSelection>0</ModuleSelection>
-              <IncludeInBuild>0</IncludeInBuild>
+              <IncludeInBuild>1</IncludeInBuild>
               <AlwaysBuild>2</AlwaysBuild>
               <GenerateAssemblyFile>2</GenerateAssemblyFile>
               <AssembleAssemblyFile>2</AssembleAssemblyFile>
@@ -2379,26 +2287,131 @@
               <FileName>nrf_delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>C:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_Drivers\2.0.0\hal\nrf_delay.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>0</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
             </File>
             <File>
-              <FileName>app_uart.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>RTE\nRF_Drivers\nRF51422_xxAC\app_uart.h</FilePath>
-            </File>
-            <File>
-              <FileName>app_uart_fifo.c</FileName>
+              <FileName>simple_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>RTE\nRF_Drivers\nRF51422_xxAC\app_uart_fifo.c</FilePath>
+              <FilePath>RTE\nRF_Drivers\nRF51422_xxAC\simple_uart.c</FilePath>
             </File>
             <File>
-              <FileName>app_uart.h</FileName>
+              <FileName>simple_uart.h</FileName>
               <FileType>5</FileType>
-              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\app_uart.h</FilePath>
+              <FilePath>RTE\nRF_Drivers\nRF51422_xxAC\simple_uart.h</FilePath>
             </File>
             <File>
-              <FileName>app_uart_fifo.c</FileName>
+              <FileName>simple_uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\app_uart_fifo.c</FilePath>
+              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\simple_uart.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>0</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <useXO>2</useXO>
+                    <VariousControls>
+                      <MiscControls></MiscControls>
+                      <Define></Define>
+                      <Undefine></Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>simple_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>RTE\nRF_Drivers\nRF51822_xxAA\simple_uart.h</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>0</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>0</IncludeInBuild>
+                  <AlwaysBuild>2</AlwaysBuild>
+                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
+                  <PublicsOnly>2</PublicsOnly>
+                  <StopOnExitCode>11</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds/>
+              </FileOption>
             </File>
           </Files>
         </Group>
@@ -2486,16 +2499,6 @@
               <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\app_error.h</FilePath>
             </File>
             <File>
-              <FileName>app_fifo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\app_fifo.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_fifo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\app_fifo.h</FilePath>
-            </File>
-            <File>
               <FileName>app_gpiote.c</FileName>
               <FileType>1</FileType>
               <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\app_gpiote.c</FilePath>
@@ -2514,11 +2517,6 @@
               <FileName>app_timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\app_timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>retarget.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51422_xxAC\retarget.c</FilePath>
             </File>
             <File>
               <FileName>app_button.c</FileName>
@@ -2541,16 +2539,6 @@
               <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_error.h</FilePath>
             </File>
             <File>
-              <FileName>app_fifo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_fifo.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_fifo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_fifo.h</FilePath>
-            </File>
-            <File>
               <FileName>app_gpiote.c</FileName>
               <FileType>1</FileType>
               <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_gpiote.c</FilePath>
@@ -2569,11 +2557,6 @@
               <FileName>app_timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\app_timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>retarget.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>RTE\nRF_Libraries\nRF51822_xxAA\retarget.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2689,8 +2672,8 @@
       <component Cclass="Board Support" Cgroup="bsp" Cvariant="default" Cvendor="NordicSemiconductor" Cversion="8.0.0" condition="bsp_default">
         <package name="nRF_Examples" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Examples/" vendor="NordicSemiconductor" version="8.0.0"/>
         <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice" versionMatchMode="any"/>
-          <targetInfo name="nrf51422_xxac_s110" versionMatchMode="fixed"/>
+          <targetInfo name="flash_softdevice"/>
+          <targetInfo name="nrf51422_xxac_s110"/>
         </targetInfos>
       </component>
       <component Cclass="Device" Cgroup="Startup" Cvendor="NordicSemiconductor" Cversion="7.1.0" condition="nRF51 Series CMSIS Device">
@@ -2735,13 +2718,6 @@
           <targetInfo name="nrf51422_xxac_s110" versionMatchMode="fixed"/>
         </targetInfos>
       </component>
-      <component Cclass="nRF_Drivers" Cgroup="app_uart" Cvariant="Fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_uart_Fifo">
-        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice" versionMatchMode="any"/>
-          <targetInfo name="nrf51422_xxac_s110" versionMatchMode="fixed"/>
-        </targetInfos>
-      </component>
       <component Cclass="nRF_Drivers" Cgroup="nrf_delay" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="nrf_delay">
         <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="2.0.0"/>
         <targetInfos>
@@ -2763,6 +2739,13 @@
           <targetInfo name="nrf51422_xxac_s110" versionMatchMode="fixed"/>
         </targetInfos>
       </component>
+      <component Cclass="nRF_Drivers" Cgroup="simple_uart" Cvendor="NordicSemiconductor" Cversion="1.2.0" condition="simple_uart">
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="flash_softdevice"/>
+          <targetInfo name="nrf51422_xxac_s110"/>
+        </targetInfos>
+      </component>
       <component Cclass="nRF_Libraries" Cgroup="app_button" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_button">
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
         <targetInfos>
@@ -2771,13 +2754,6 @@
         </targetInfos>
       </component>
       <component Cclass="nRF_Libraries" Cgroup="app_error" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_error">
-        <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice" versionMatchMode="any"/>
-          <targetInfo name="nrf51422_xxac_s110" versionMatchMode="fixed"/>
-        </targetInfos>
-      </component>
-      <component Cclass="nRF_Libraries" Cgroup="app_fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_fifo">
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
         <targetInfos>
           <targetInfo excluded="1" name="flash_softdevice" versionMatchMode="any"/>
@@ -2799,13 +2775,6 @@
         </targetInfos>
       </component>
       <component Cclass="nRF_Libraries" Cgroup="app_util" Cvariant="default" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_util_default">
-        <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice" versionMatchMode="any"/>
-          <targetInfo name="nrf51422_xxac_s110" versionMatchMode="fixed"/>
-        </targetInfos>
-      </component>
-      <component Cclass="nRF_Libraries" Cgroup="retarget" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="retarget">
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
         <targetInfos>
           <targetInfo excluded="1" name="flash_softdevice" versionMatchMode="any"/>
@@ -2854,7 +2823,7 @@
         <component Cclass="Board Support" Cgroup="bsp" Cvariant="default" Cvendor="NordicSemiconductor" Cversion="8.0.0" condition="bsp_default"/>
         <package name="nRF_Examples" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Examples/" vendor="NordicSemiconductor" version="8.0.0"/>
         <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice"/>
+          <targetInfo name="flash_softdevice"/>
         </targetInfos>
       </file>
       <file attr="config" category="source" name="bsp\bsp.c" version="8.0.0">
@@ -2962,33 +2931,57 @@
         </targetInfos>
       </file>
       <file attr="config" category="header" name="uart\app_uart.h" version="2.0.0">
-        <instance index="0">RTE\nRF_Drivers\nRF51422_xxAC\app_uart.h</instance>
+        <instance index="0" removed="1">RTE\nRF_Drivers\nRF51422_xxAC\app_uart.h</instance>
         <component Cclass="nRF_Drivers" Cgroup="app_uart" Cvariant="Fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_uart_Fifo"/>
         <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="source" name="uart\app_uart_fifo.c" version="2.0.0">
-        <instance index="0">RTE\nRF_Drivers\nRF51422_xxAC\app_uart_fifo.c</instance>
+        <instance index="0" removed="1">RTE\nRF_Drivers\nRF51422_xxAC\app_uart_fifo.c</instance>
         <component Cclass="nRF_Drivers" Cgroup="app_uart" Cvariant="Fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_uart_Fifo"/>
         <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="2.0.0"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" name="simple_uart\simple_uart.c">
+        <instance index="0">RTE\nRF_Drivers\nRF51422_xxAC\simple_uart.c</instance>
+        <component Cclass="nRF_Drivers" Cgroup="simple_uart" Cvendor="NordicSemiconductor" Cversion="1.2.0" condition="simple_uart"/>
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="1.2.0"/>
         <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice"/>
+          <targetInfo name="flash_softdevice"/>
+        </targetInfos>
+      </file>
+      <file attr="config" category="header" name="simple_uart\simple_uart.h">
+        <instance index="0">RTE\nRF_Drivers\nRF51422_xxAC\simple_uart.h</instance>
+        <component Cclass="nRF_Drivers" Cgroup="simple_uart" Cvendor="NordicSemiconductor" Cversion="1.2.0" condition="simple_uart"/>
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="1.2.0"/>
+        <targetInfos>
+          <targetInfo name="flash_softdevice"/>
         </targetInfos>
       </file>
       <file attr="config" category="header" name="uart\app_uart.h" version="2.0.0">
-        <instance index="0">RTE\nRF_Drivers\nRF51822_xxAA\app_uart.h</instance>
+        <instance index="0" removed="1">RTE\nRF_Drivers\nRF51822_xxAA\app_uart.h</instance>
         <component Cclass="nRF_Drivers" Cgroup="app_uart" Cvariant="Fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_uart_Fifo"/>
         <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="2.0.0"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" name="uart\app_uart_fifo.c" version="2.0.0">
+        <instance index="0" removed="1">RTE\nRF_Drivers\nRF51822_xxAA\app_uart_fifo.c</instance>
+        <component Cclass="nRF_Drivers" Cgroup="app_uart" Cvariant="Fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_uart_Fifo"/>
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="2.0.0"/>
+        <targetInfos/>
+      </file>
+      <file attr="config" category="source" name="simple_uart\simple_uart.c">
+        <instance index="0">RTE\nRF_Drivers\nRF51822_xxAA\simple_uart.c</instance>
+        <component Cclass="nRF_Drivers" Cgroup="simple_uart" Cvendor="NordicSemiconductor" Cversion="1.2.0" condition="simple_uart"/>
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="nrf51422_xxac_s110"/>
         </targetInfos>
       </file>
-      <file attr="config" category="source" name="uart\app_uart_fifo.c" version="2.0.0">
-        <instance index="0">RTE\nRF_Drivers\nRF51822_xxAA\app_uart_fifo.c</instance>
-        <component Cclass="nRF_Drivers" Cgroup="app_uart" Cvariant="Fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_uart_Fifo"/>
-        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="2.0.0"/>
+      <file attr="config" category="header" name="simple_uart\simple_uart.h">
+        <instance index="0">RTE\nRF_Drivers\nRF51822_xxAA\simple_uart.h</instance>
+        <component Cclass="nRF_Drivers" Cgroup="simple_uart" Cvendor="NordicSemiconductor" Cversion="1.2.0" condition="simple_uart"/>
+        <package name="nRF_Drivers" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Drivers/" vendor="NordicSemiconductor" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="nrf51422_xxac_s110"/>
         </targetInfos>
@@ -3026,20 +3019,16 @@
         </targetInfos>
       </file>
       <file attr="config" category="source" name="fifo\app_fifo.c" version="2.0.0">
-        <instance index="0">RTE\nRF_Libraries\nRF51422_xxAC\app_fifo.c</instance>
+        <instance index="0" removed="1">RTE\nRF_Libraries\nRF51422_xxAC\app_fifo.c</instance>
         <component Cclass="nRF_Libraries" Cgroup="app_fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_fifo"/>
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="header" name="fifo\app_fifo.h" version="2.0.0">
-        <instance index="0">RTE\nRF_Libraries\nRF51422_xxAC\app_fifo.h</instance>
+        <instance index="0" removed="1">RTE\nRF_Libraries\nRF51422_xxAC\app_fifo.h</instance>
         <component Cclass="nRF_Libraries" Cgroup="app_fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_fifo"/>
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="source" name="gpiote\app_gpiote.c" version="2.0.0">
         <instance index="0">RTE\nRF_Libraries\nRF51422_xxAC\app_gpiote.c</instance>
@@ -3074,12 +3063,10 @@
         </targetInfos>
       </file>
       <file attr="config" category="source" name="uart\retarget.c" version="2.0.0">
-        <instance index="0">RTE\nRF_Libraries\nRF51422_xxAC\retarget.c</instance>
+        <instance index="0" removed="1">RTE\nRF_Libraries\nRF51422_xxAC\retarget.c</instance>
         <component Cclass="nRF_Libraries" Cgroup="retarget" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="retarget"/>
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo excluded="1" name="flash_softdevice"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="source" name="button\app_button.c" version="2.0.0">
         <instance index="0">RTE\nRF_Libraries\nRF51822_xxAA\app_button.c</instance>
@@ -3114,20 +3101,16 @@
         </targetInfos>
       </file>
       <file attr="config" category="source" name="fifo\app_fifo.c" version="2.0.0">
-        <instance index="0">RTE\nRF_Libraries\nRF51822_xxAA\app_fifo.c</instance>
+        <instance index="0" removed="1">RTE\nRF_Libraries\nRF51822_xxAA\app_fifo.c</instance>
         <component Cclass="nRF_Libraries" Cgroup="app_fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_fifo"/>
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo name="nrf51422_xxac_s110"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="header" name="fifo\app_fifo.h" version="2.0.0">
-        <instance index="0">RTE\nRF_Libraries\nRF51822_xxAA\app_fifo.h</instance>
+        <instance index="0" removed="1">RTE\nRF_Libraries\nRF51822_xxAA\app_fifo.h</instance>
         <component Cclass="nRF_Libraries" Cgroup="app_fifo" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="app_fifo"/>
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo name="nrf51422_xxac_s110"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="source" name="gpiote\app_gpiote.c" version="2.0.0">
         <instance index="0">RTE\nRF_Libraries\nRF51822_xxAA\app_gpiote.c</instance>
@@ -3162,12 +3145,10 @@
         </targetInfos>
       </file>
       <file attr="config" category="source" name="uart\retarget.c" version="2.0.0">
-        <instance index="0">RTE\nRF_Libraries\nRF51822_xxAA\retarget.c</instance>
+        <instance index="0" removed="1">RTE\nRF_Libraries\nRF51822_xxAA\retarget.c</instance>
         <component Cclass="nRF_Libraries" Cgroup="retarget" Cvendor="NordicSemiconductor" Cversion="2.0.0" condition="retarget"/>
         <package name="nRF_Libraries" schemaVersion="1.2" supportContact="http://www.nordicsemi.com/About-us/Contact-us" url="http://developer.nordicsemi.com/nRF51_SDK/pieces/nRF_Libraries/" vendor="NordicSemiconductor" version="2.0.0"/>
-        <targetInfos>
-          <targetInfo name="nrf51422_xxac_s110"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="doc" name="doc\s110_nrf51_8.0.0_licence-agreement.txt" version="8.0.0">
         <instance index="0">RTE\nRF_SoftDevice\nRF51422_xxAC\s110_nrf51_8.0.0_licence-agreement.txt</instance>

@@ -81,13 +81,14 @@
 #define UART_RX_BUF_SIZE                512                                         /**< UART RX buffer size. */
 #define CR200_BUF_SIZE   								1024*4
 #define TIME_PERIOD 										3600       																	
+#define UART_POWER  				3    //10   //5TM Power
 
 static ble_gap_sec_params_t             m_sec_params;                               /**< Security requirements for this application. */
 static ble_nus_t                        m_nus;                                      /**< Structure to identify the Nordic UART Service. */
 static uint16_t                         m_conn_handle = BLE_CONN_HANDLE_INVALID;    /**< Handle of the current connection. */
 static uint32_t	 timer_counter = 0;
 static app_timer_id_t           weakup_timer_id;                                   
-static bool weakup_flag = true ;
+static bool weakup_flag = false ;
 static uint8_t cr200_data[CR200_BUF_SIZE] ;
 static uint16_t cr200_data_index = 0 ;
 static uint8_t cr200_stat = 1 ;
@@ -188,11 +189,25 @@ static void advertising_init(void)
 /**@snippet [Handling the data received over BLE] */
 static void nus_data_handler(ble_nus_t * p_nus, uint8_t * p_data, uint16_t length)
 {
-//    for (uint32_t i = 0; i < length; i++)
-//    {
-//        while(app_uart_put(p_data[i]) != NRF_SUCCESS);
-//    }
-//    while(app_uart_put('\n') != NRF_SUCCESS);
+    for (uint32_t i = 0; i < length; i++)
+    {
+				if (p_data[i] == '\\' & p_data[i+1] == 'r') p_data[++i]=0x0D;
+        simple_uart_put(p_data[i]);
+    }
+		cr200_data_index = 0;
+		uint16_t index_shift = 0;
+		uint16_t i = 0 , count =0;
+    while (count++ < 100){
+				while(simple_uart_get_with_timeout(1,&cr200_data[cr200_data_index])) cr200_data_index++;
+				for (; i < cr200_data_index; i++){
+						length = i + 1 - index_shift;
+						if ((cr200_data[i] == '\n') || (i == (cr200_data_index-1)) || length == 20) {
+								ble_nus_string_send(p_nus, cr200_data+index_shift, length);
+								index_shift = i+1;
+								count = 0;
+						}
+				}
+		}
 }
 /**@snippet [Handling the data received over BLE] */
 
@@ -319,16 +334,33 @@ static void on_ble_evt(ble_evt_t * p_ble_evt)
     switch (p_ble_evt->header.evt_id)
     {
         case BLE_GAP_EVT_CONNECTED:
-            err_code = bsp_indication_set(BSP_INDICATE_CONNECTED);
-            APP_ERROR_CHECK(err_code);
+//            err_code = bsp_indication_set(BSP_INDICATE_CONNECTED);
+//            APP_ERROR_CHECK(err_code);
             m_conn_handle = p_ble_evt->evt.gap_evt.conn_handle;
+
+					nrf_gpio_pin_set (UART_POWER);
+		  			NRF_UART0->ENABLE = (UART_ENABLE_ENABLE_Enabled << UART_ENABLE_ENABLE_Pos);
+					NRF_UART0->POWER = (UART_POWER_POWER_Enabled << UART_POWER_POWER_Pos);
+//					simple_uart_config(NULL,16,NULL,8,false);
+					simple_uart_config(NULL,0,NULL,1,false);
+					NRF_UART0->BAUDRATE      = (UART_BAUDRATE_BAUDRATE_Baud9600 << UART_BAUDRATE_BAUDRATE_Pos);
+
             break;
             
         case BLE_GAP_EVT_DISCONNECTED:
-            err_code = bsp_indication_set(BSP_INDICATE_IDLE);
-            APP_ERROR_CHECK(err_code);
+//            err_code = bsp_indication_set(BSP_INDICATE_IDLE);
+//            APP_ERROR_CHECK(err_code);
+
+					NRF_UART0->POWER = (UART_POWER_POWER_Disabled << UART_POWER_POWER_Pos);
+		  			NRF_UART0->ENABLE = (UART_ENABLE_ENABLE_Disabled << UART_ENABLE_ENABLE_Pos);
+					nrf_gpio_pin_clear (UART_POWER);
+
+
             m_conn_handle = BLE_CONN_HANDLE_INVALID;
             advertising_start();
+
+
+
             break;
             
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
@@ -604,7 +636,7 @@ void gprs_gtm900()
 			send_string("AT+CIPSEND\r\n",">");		
 			if(!send_string("DATA\r\n\x1a","SEND")) return;//DATA
 
-			send_string("AT+CREG=2\r\n","OK");
+			send_string("CR200_UART:AT+CREG=2\r\n","OK");
 
 
 			send_string("AT+CREG?\r\n","OK");
@@ -660,13 +692,14 @@ static void weakup_timeout_handler(void * p_context)
     UNUSED_PARAMETER(p_context);
 		uint32_t err_code;
 //		send_ok = false;
-		if (++timer_counter > 1) { weakup_flag = true ; timer_counter = 0;}  
+		if (++timer_counter > 0) { weakup_flag = true ; timer_counter = 0;}  
 		else if (!send_ok ) weakup_flag = true;
 }
 
 int main(void)
 {
-    uint8_t start_string[] = START_STRING;
+
+//    uint8_t start_string[] = START_STRING;
     uint32_t err_code;
     
     // Initialize.
@@ -696,7 +729,6 @@ int main(void)
 //    sec_params_init();
     
 //    printf("%s",start_string);
-	#define UART_POWER  				3    //10   //5TM Power
 
 		NRF_GPIO->PIN_CNF[UART_POWER] = (GPIO_PIN_CNF_SENSE_Disabled << GPIO_PIN_CNF_SENSE_Pos)
                                             | (GPIO_PIN_CNF_DRIVE_H0H1 << GPIO_PIN_CNF_DRIVE_Pos)
@@ -721,13 +753,16 @@ int main(void)
     {
 			if (weakup_flag){
 					nrf_gpio_pin_set (UART_POWER);
+		  			NRF_UART0->ENABLE = (UART_ENABLE_ENABLE_Enabled << UART_ENABLE_ENABLE_Pos);
 					NRF_UART0->POWER = (UART_POWER_POWER_Enabled << UART_POWER_POWER_Pos);
-					simple_uart_config(NULL,8,NULL,16,false);
 //					simple_uart_config(NULL,16,NULL,8,false);
+					simple_uart_config(NULL,0,NULL,1,false);
 					NRF_UART0->BAUDRATE      = (UART_BAUDRATE_BAUDRATE_Baud9600 << UART_BAUDRATE_BAUDRATE_Pos);
 
 					err_code=cr200_uart();
+
 					NRF_UART0->POWER = (UART_POWER_POWER_Disabled << UART_POWER_POWER_Pos);
+		  			NRF_UART0->ENABLE = (UART_ENABLE_ENABLE_Disabled << UART_ENABLE_ENABLE_Pos);
 					nrf_gpio_pin_clear (UART_POWER);
 		
 					if (err_code ) {
@@ -735,8 +770,9 @@ int main(void)
 						nrf_delay_ms(100);
 						nrf_gpio_pin_set(GTM900_power_pin);
 		  			NRF_UART0->POWER = (UART_POWER_POWER_Enabled << UART_POWER_POWER_Pos);
+		  			NRF_UART0->ENABLE = (UART_ENABLE_ENABLE_Enabled << UART_ENABLE_ENABLE_Pos);
 
-						simple_uart_config(NULL, 23, NULL, 24, false);  // for GPS box PCB
+						simple_uart_config(NULL, 24, NULL, 23, false);  // for GPS box PCB
 						NRF_UART0->BAUDRATE      = (UART_BAUDRATE_BAUDRATE_Baud38400 << UART_BAUDRATE_BAUDRATE_Pos);
 
 						gprs_gtm900();
@@ -747,6 +783,8 @@ int main(void)
 						send_string("AT+CIPSHUT\r\n","OK");
 						send_string("AT+CGATT=0\r\n","OK");
 						send_string("AT+CPOWD=1\r\n","POWER");
+					NRF_UART0->POWER = (UART_POWER_POWER_Disabled << UART_POWER_POWER_Pos);
+
 						NRF_UART0->POWER = (UART_POWER_POWER_Disabled << UART_POWER_POWER_Pos);
 						nrf_gpio_pin_clear(GTM900_power_pin);
 						}
